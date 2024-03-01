@@ -1,0 +1,17 @@
+{
+  "name": "rahul_calculator",
+  "version": "1.0.0",
+  "description": "calc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Demo_calc"
+  ],
+  "author": "rgs_0410 <rgs786999@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "rahul_calculator": "^1.0.0"
+  }
+}
