@@ -44,9 +44,13 @@
         })
         socket.on('name', user => {
             const item = document.createElement('p');
+            const item1 = document.createElement('p');
             item.textContent = user;
+            item1.textContent=`${user} connected`;
+            list.appendChild(item1);
             list.appendChild(item);
         })
+      
         socket.on('chat message', msg => {
             const item = document.createElement('li');
             item.textContent = msg;
