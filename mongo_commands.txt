@@ -1,0 +1,325 @@
+use employee
+switched to db employee
+db.createCollection('product')
+{ ok: 1 }
+db.product.insertOne({name:"laptop",price:34000,color:"white"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('660673cc78d5074ed6e8d0e6')
+}
+db.product.find()
+{
+  _id: ObjectId('660673cc78d5074ed6e8d0e6'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white'
+}
+show collections
+product
+db.product.drop()
+true
+db.createCollection('product')
+{ ok: 1 }
+db.product.insertOne({name:"laptop",price:34000,color:"white"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6606758478d5074ed6e8d0e7')
+}
+db.product.find()
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white'
+}
+var allProduct={}
+var allProduct=[{}]
+ 
+var allProduct=[{name:"samsung",price:45000,color:"red"},{name:"tata",price:3000,color:"yelow"}]
+db.product.insertOne(allProduct)
+{
+  acknowledged: true,
+  insertedId: ObjectId('660676de78d5074ed6e8d0e8')
+}
+db.product.find()
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white'
+}
+{
+  '0': {
+    name: 'samsung',
+    price: 45000,
+    color: 'red'
+  },
+  '1': {
+    name: 'tata',
+    price: 3000,
+    color: 'yelow'
+  },
+  _id: ObjectId('660676de78d5074ed6e8d0e8')
+}
+var allProduct=[{name:"Nokia",price:4500,color:"red"},{name:"bonsai",price:3000,color:"black"},{name:"apple",price:100000,color:"metalic"}]
+db.product.insertOne(allProduct)
+{
+  acknowledged: true,
+  insertedId: ObjectId('6606781f78d5074ed6e8d0e9')
+}
+db.product.find()
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white'
+}
+{
+  '0': {
+    name: 'samsung',
+    price: 45000,
+    color: 'red'
+  },
+  '1': {
+    name: 'tata',
+    price: 3000,
+    color: 'yelow'
+  },
+  _id: ObjectId('660676de78d5074ed6e8d0e8')
+}
+{
+  '0': {
+    name: 'Nokia',
+    price: 4500,
+    color: 'red'
+  },
+  '1': {
+    name: 'bonsai',
+    price: 3000,
+    color: 'black'
+  },
+  '2': {
+    name: 'apple',
+    price: 100000,
+    color: 'metalic'
+  },
+  _id: ObjectId('6606781f78d5074ed6e8d0e9')
+}
+db.product.find(color:"yelow")
+SyntaxError: Unexpected token, expected "," (1:21)
+
+> 1 | db.product.find(color:"yelow")
+    |                      ^
+db.product.find({color:"yelow"})
+db.product.find().pretty()
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white'
+}
+{
+  '0': {
+    name: 'samsung',
+    price: 45000,
+    color: 'red'
+  },
+  '1': {
+    name: 'tata',
+    price: 3000,
+    color: 'yelow'
+  },
+  _id: ObjectId('660676de78d5074ed6e8d0e8')
+}
+{
+  '0': {
+    name: 'Nokia',
+    price: 4500,
+    color: 'red'
+  },
+  '1': {
+    name: 'bonsai',
+    price: 3000,
+    color: 'black'
+  },
+  '2': {
+    name: 'apple',
+    price: 100000,
+    color: 'metalic'
+  },
+  _id: ObjectId('6606781f78d5074ed6e8d0e9')
+}
+db.find(price:3000)
+SyntaxError: Unexpected token, expected "," (1:13)
+
+> 1 | db.find(price:3000)
+    |              ^
+db.product.find(price:3000)
+SyntaxError: Unexpected token, expected "," (1:21)
+
+> 1 | db.product.find(price:3000)
+    |                      ^
+db.product.find({price:3000})
+db.product.find({price:34000})
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white'
+}
+db.product.update({'name':'laptop'},{$set:{waranty:'2yr'}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.find(price:3000)
+SyntaxError: Unexpected token, expected "," (1:13)
+
+> 1 | db.find(price:3000)
+    |              ^
+db.product.find()
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white',
+  waranty: '2yr'
+}
+{
+  '0': {
+    name: 'samsung',
+    price: 45000,
+    color: 'red'
+  },
+  '1': {
+    name: 'tata',
+    price: 3000,
+    color: 'yelow'
+  },
+  _id: ObjectId('660676de78d5074ed6e8d0e8')
+}
+{
+  '0': {
+    name: 'Nokia',
+    price: 4500,
+    color: 'red'
+  },
+  '1': {
+    name: 'bonsai',
+    price: 3000,
+    color: 'black'
+  },
+  '2': {
+    name: 'apple',
+    price: 100000,
+    color: 'metalic'
+  },
+  _id: ObjectId('6606781f78d5074ed6e8d0e9')
+}
+db.product.find({price:3000})
+db.product.find({price:34000})
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white',
+  waranty: '2yr'
+}
+db.product.update({'name':'laptop'},{$set:{waranty:'4yr'},{discount:'14%'}})
+SyntaxError: Unexpected token (1:58)
+
+> 1 | db.product.update({'name':'laptop'},{$set:{waranty:'4yr'},{discount:'14%'}})
+    |                                                           ^
+db.product.updateMany({'name':'laptop'},{$set:{waranty:'4yr'},{discount:'14%'}})
+SyntaxError: Unexpected token (1:62)
+
+> 1 | db.product.updateMany({'name':'laptop'},{$set:{waranty:'4yr'},{discount:'14%'}})
+    |                                                               ^
+db.product.updateMany({'name':'laptop'},{$set:{waranty:'4yr',discount:'15%'})
+SyntaxError: Unexpected token, expected "," (1:76)
+
+> 1 | db.product.updateMany({'name':'laptop'},{$set:{waranty:'4yr',discount:'15%'})
+    |                                                                             ^
+db.product.updateMany({'name':'laptop'},{$set:{waranty:'4yr'},{discount:'15%'}})
+SyntaxError: Unexpected token (1:62)
+
+> 1 | db.product.updateMany({'name':'laptop'},{$set:{waranty:'4yr'},{discount:'15%'}})
+    |                                                               ^
+db.product.updateMany({'name':'laptop'},{$set:{waranty:'4yr'},$set:{discount:'15%'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.product.find(price:34000)
+SyntaxError: Unexpected token, expected "," (1:21)
+
+> 1 | db.product.find(price:34000)
+    |                      ^
+db.product.find({price:34000})
+{
+  _id: ObjectId('6606758478d5074ed6e8d0e7'),
+  name: 'laptop',
+  price: 34000,
+  color: 'white',
+  waranty: '2yr',
+  discount: '15%'
+}
+db.product.insertOne({name:'why',price:'35000'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66067f8e78d5074ed6e8d0ea')
+}
+db.product.find({'name':1}).sort({'name':1})
+db.product.insertOne({name:'why',price:'35000'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66067f8e78d5074ed6e8d0ea')
+}
+db.product.find({'name':1}).sort({'name':1})
+db.product.find({},{'name':1}).sort({'name':1})
+{
+  _id: ObjectId('660676de78d5074ed6e8d0e8')
+}
+db.product.aggregate({$group: {_id:"$name", occurrence:{$sum:1}}})
+{
+  _id: null,
+  occurrence: 2
+}
+{
+  _id: 'laptop',
+  occurrence: 2
+}
+{
+  _id: 'why',
+  occurrence: 1
+}
+db.product.aggregate({$group: {_id:"$price", occurrence:{$min:"$price"}}})
+{
+  _id: null,
+  occurrence: null
+}
+{
+  _id: 34000,
+  occurrence: 34000
+}
+{
+  _id: '35000',
+  occurrence: '35000'
+}
+{
+  _id: 2300,
+  occurrence: 2300
+}
+db.product.aggregate({$group: {_id:"price", occurrence:{$min:"$price"}}})
+{
+  _id: 'price',
+  occurrence: 2300
+}
+db.product.aggregate({$group: {_id:"$name", price:{$min:"$price"}}})
