@@ -26,4 +26,4 @@ data.save().then(
             console.log(err);
         }
     )
-module.exports=mongoose.model('students',stds);
+module.exports=mongoose.model('students1',stds);
